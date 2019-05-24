@@ -1,6 +1,7 @@
 const express = require('express');
 const app =express();
-
+const bodyParser = require('body-parser');
+app.use(bodyParser({extended: true}));
 app.get('/',(req,res)=>{
 	res.status(200).send('Ola mundo');
 });
@@ -10,7 +11,7 @@ app.post('/',(req,res)=>{
 });
 
 app.put('/:id',(req,res)=>{
-	res.status(202).send(codigo: req.params.id,corpo:req.body);
+	res.status(202).send({codigo: req.params.id,corpo:req.body});
 });
 
 app.delete('/:id',(req,res)=>{
